@@ -64,6 +64,42 @@ class XCNNSCF(torch.nn.Module):
     exchange and correlation effects. Physical review, 140(4A), p.A1133.
     """
 
+  
+
+    @abstractmethod
+    def get_xc(self) -> HybridXC:
+        """
+         Returns
+        -------
+        Exchange correlation functional that has been replaced by a
+        neural network, based on a BaseNNXC model.
+        """
+        pass
+
+    @abstractmethod
+    def run(self, system: DFTSystem) -> KSCalc:
+        """
+        Kohn Sham Model
+        This method runs the Quantum Chemistry calculation (Differentiable
+        DFT) of the given system and returns the post-run object. This method
+        starts with an intial density matrix, the new density matrix can be
+        obtained from the post-run object.
+
+        Parameters
+        ----------
+        system: DFTSystem
+
+        Returns
+        -------
+        KSCalc object
+
+        """
+        pass
+
+class XCNNSCFOld(XCNNSCF):
+    """
+    The KS calculations are performed by neural network.
+    """
     def __init__(self, xc: Union[BaseNNXC, HybridXC], entry: DFTEntry):
         super().__init__()
         """
@@ -76,7 +112,6 @@ class XCNNSCF(torch.nn.Module):
         """
         self.xc = xc
 
-    @abstractmethod
     def get_xc(self) -> HybridXC:
         """
         Returns
@@ -85,8 +120,7 @@ class XCNNSCF(torch.nn.Module):
         neural network, based on a BaseNNXC model.
         """
         return self.xc
-
-    @abstractmethod
+    
     def run(self, system: DFTSystem) -> KSCalc:
         """
         Kohn Sham Model

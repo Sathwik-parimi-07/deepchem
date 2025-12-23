@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-from abc import abstractmethod, ABC 
+from abc import abstractmethod
 import torch
 from deepchem.utils.differentiation_utils import EditableModule
 from typing import Any, List, Union, Iterator
