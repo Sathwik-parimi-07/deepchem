@@ -55,6 +55,18 @@ class BaseNNXC(BaseXC, torch.nn.Module):
     functional from nature with fully differentiable density functional
     theory." Physical Review Letters 127.12 (2021): 126403.
     """
+    @property
+    def family(self) -> int:
+        """
+        This method determines the type of model to be used, to train the
+        neural network. 
+
+        Returns
+        -------
+        int
+            Family type of the XC functional.
+        """
+        pass
 
     @abstractmethod
     def get_edensityxc(
