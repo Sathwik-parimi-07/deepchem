@@ -2,11 +2,12 @@ from abc import abstractmethod
 from typing import Union, List
 import torch
 import warnings
-from deepchem.utils.dft_utils import BaseXC
+
 
 try:
-    from deepchem.utils.dft_utils import ValGrad
-    from deepchem.utils.dftutils import SpinParam
+    from deepchem.utils.dft_utils.data.datastruct import ValGrad
+    from deepchem.utils.dft_utils.data.datastruct import SpinParam
+    from deepchem.utils.dft_utils.xc.base_xc import BaseXC
     from deepchem.utils.dft_utils.api.getxc import get_xc
     from deepchem.utils import safenorm, safepow
 except Exception as e:
