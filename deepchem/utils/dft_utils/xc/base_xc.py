@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod, ABC 
 import torch
 from deepchem.utils.differentiation_utils import EditableModule
 from typing import Any, List, Union, Iterator
@@ -50,7 +50,7 @@ class BaseXC(EditableModule):
 
     """
 
-    @abstractproperty
+    @property
     def family(self) -> int:
         """Returns 1 for LDA, 2 for GGA, and 4 for Meta-GGA."""
         pass
