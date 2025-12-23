@@ -67,7 +67,8 @@ class DFTXC(torch.nn.Module):
                                  self.nnmodel,
                                  aweight0=self.aweight0)
 
-    def forward(self, inputs):
+    def forward(self, 
+                inputs: List[Any]) -> List[torch.Tensor]:
         """
         Parameters
         ----------
