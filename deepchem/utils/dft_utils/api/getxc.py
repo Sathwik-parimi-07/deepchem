@@ -1,7 +1,7 @@
 import re
 import warnings
 try:
-    import pylibxc
+    import pylibxc2
 except (ImportError, ModuleNotFoundError) as e:
     warnings.warn(f"Failed to import pylibxc. Might not be able to use xc. {e}")
 from deepchem.utils.dft_utils import BaseXC, LibXCLDA, LibXCGGA, LibXCMGGA
@@ -36,7 +36,7 @@ def get_libxc(name: str) -> BaseXC:
         XC object that wraps the xc requested
 
     """
-    obj = pylibxc.LibXCFunctional(name, "unpolarized")
+    obj = pylibxc2.LibXCFunctional(name, "unpolarized")
     family = obj.get_family()
     del obj
     if family == 1:  # LDA
