@@ -4,7 +4,7 @@ Derived from: https://github.com/mfkasim1/xcnn/blob/f2cb9777da2961ac553f256ecdcc
 import hashlib
 import warnings
 from dataclasses import dataclass
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from typing import Union, List, TypeVar, Generic, Callable
 try:
     import torch
@@ -241,15 +241,15 @@ class BaseGrid(EditableModule):
     https://github.com/diffqc/dqc/blob/0fe821fc92cb3457fb14f6dff0c223641c514ddb/dqc/grid/base_grid.py
     """
 
-    @abstractproperty
+    @property
     def dtype(self) -> torch.dtype:
         pass
 
-    @abstractproperty
+    @property
     def device(self) -> torch.device:
         pass
 
-    @abstractproperty
+    @property
     def coord_type(self) -> str:
         """
         Returns the type of the coordinate returned in get_rgrid

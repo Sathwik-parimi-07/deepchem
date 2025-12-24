@@ -306,7 +306,7 @@ class SCF_QCCalc(BaseQCCalc):
         Returns
         -------
         torch.Tensor
-            Tensor that represents the energy given the energy.
+            Tensor that represents the energy of the system.
 
         """
         assert (isinstance(dm, torch.Tensor) and not self._polarized) or \

@@ -1,7 +1,7 @@
 import re
 import warnings
 try:
-    import pylibxc2
+    import pylibxc
 except (ImportError, ModuleNotFoundError) as e:
     warnings.warn(f"Failed to import pylibxc. Might not be able to use xc. {e}")
 from deepchem.utils.dft_utils import BaseXC, LibXCLDA, LibXCGGA, LibXCMGGA
